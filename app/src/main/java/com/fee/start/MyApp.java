@@ -8,9 +8,7 @@ import com.fee.start.tasks.Task3;
 import com.fee.start.tasks.Task4;
 import com.fee.start.tasks.Task5;
 import com.github.androidstartup.StartupTasksManager;
-import com.github.androidstartup.StartupTasksOrganizer;
 
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -34,21 +32,21 @@ public class MyApp extends Application {
                 new SynchronousQueue<>()
                 );
         StartupTasksManager.Builder
-                .addTask(new Task1())
-                .addTask(new Task5())
-                .addTask(new Task3())
-                .addTask(new Task2())
-                .addTask(new Task4())
+                .withTask(new Task1())
+                .withTask(new Task5())
+                .withTask(new Task3())
+                .withTask(new Task2())
+                .withTask(new Task4())
                 .withTaskExecutor(executor)
                 .withContext(this)
                 .startUp();
 
 //        new StartupTasksOrganizer.TasksBuilder()
-//                .addTask(new Task1())
-//                .addTask(new Task5())
-//                .addTask(new Task3())
-//                .addTask(new Task2())
-//                .addTask(new Task4())
+//                .withTask(new Task1())
+//                .withTask(new Task5())
+//                .withTask(new Task3())
+//                .withTask(new Task2())
+//                .withTask(new Task4())
 //                .build(this)
 //                .startUp();
 

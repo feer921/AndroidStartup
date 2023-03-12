@@ -89,7 +89,7 @@ class StartupTasksOrganizer(private val mAppContext: Context?,private val mAdded
 
         private var mContext: Context? = null
 
-        fun addTask(task: IStartupTask<*>): TasksBuilder{
+        fun withTask(task: IStartupTask<*>): TasksBuilder{
             mAddedTasks.add(task)
             return this
         }

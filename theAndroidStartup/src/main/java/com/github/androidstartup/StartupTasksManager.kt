@@ -38,8 +38,8 @@ class StartupTasksManager private constructor(): ITaskListener{
         /**
          * 添加启动任务
          */
-        fun addTask(startupTask: IStartupTask<*>): StartupTasksManager {
-            return getTasksManager().addTask(startupTask)
+        fun withTask(startupTask: IStartupTask<*>): StartupTasksManager {
+            return getTasksManager().withTask(startupTask)
         }
 
         /**
@@ -153,7 +153,7 @@ class StartupTasksManager private constructor(): ITaskListener{
      * 添加启动任务
      */
     @MainThread
-    fun addTask(startupTask: IStartupTask<*>): StartupTasksManager {
+    fun withTask(startupTask: IStartupTask<*>): StartupTasksManager {
         mAddedTasksList.add(startupTask)
         return this
     }
