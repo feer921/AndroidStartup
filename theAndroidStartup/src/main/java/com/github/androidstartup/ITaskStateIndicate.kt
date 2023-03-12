@@ -27,7 +27,7 @@ interface ITaskStateIndicate {
     /**
      * 启动任务所依赖的任务 执行器 [Executor]
      */
-    fun dependonTaskExecutor(): Executor?
+    fun dependonTaskExecutor(): Executor? = null
 
     /**
      * 标记当前启动任务先等一等

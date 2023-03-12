@@ -24,7 +24,14 @@ class Task4: AStartupTask<Int>() {
         return 0
     }
 
+    /**
+     * 标识启动任务是否依赖主线程的执行
+     */
+    override fun isDependonMainThread(): Boolean {
+        return false
+    }
+
     override fun dependentTask(): List<Class<out IStartupTask<*>>>? {
-        return listOf(Task1::class.java)
+        return listOf(Task2::class.java)
     }
 }

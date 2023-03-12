@@ -20,7 +20,7 @@ abstract class AStartupTask<T>: IStartupTask<T> {
     /**
      * 本启动任务所依赖的上游任务在完成后的 CountDown,当所有依赖的上游任务都完成后才通知本任务执行
      */
-    protected val mDependentTaskCountDown by lazy(LazyThreadSafetyMode.NONE){
+    private val mDependentTaskCountDown by lazy(LazyThreadSafetyMode.NONE){
         CountDownLatch(getDependentTaskCount())
     }
 
@@ -69,4 +69,8 @@ abstract class AStartupTask<T>: IStartupTask<T> {
         mDependentTaskCountDown.countDown()
     }
     //----------------
+
+    override fun toString(): String {
+        return "task: $mTag,mDependentTaskCount = $mDependentTaskCount"
+    }
 }

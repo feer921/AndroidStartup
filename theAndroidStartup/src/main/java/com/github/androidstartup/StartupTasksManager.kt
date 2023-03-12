@@ -1,6 +1,7 @@
 package com.github.androidstartup
 
 import android.content.Context
+import android.util.Log
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
 import java.util.ArrayDeque
@@ -18,6 +19,7 @@ import java.util.concurrent.Executor
  */
 class StartupTasksManager private constructor(): ITaskListener{
 
+    private val mTag = "StartupTasksManager"
     /**
      * 各启动任务的执行需要 Context
      */
@@ -216,12 +218,18 @@ class StartupTasksManager private constructor(): ITaskListener{
         return this
     }
 
+    fun withContext(appContext: Context): StartupTasksManager {
+        this.mAppContext = appContext
+        return this
+    }
+
     //------------- 启动任务的执行监听 @start ---------------
     /**
      * 启动任务开始执行
      * @param theTask 当前正在执行的启动任务
      */
     override fun onTaskStart(theTask: IStartupTask<*>) {
+        Log.i(mTag,"--> onTaskStart() theTask = $theTask")
     }
 
     /**

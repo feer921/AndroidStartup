@@ -23,7 +23,6 @@ internal class TaskRunner(appContext: Context,startupTask: IStartupTask<*>,taskL
         mTaskListener?.onTaskStart(mCurStartupTask)
         //执行启动任务的工作
         val doResult =  mCurStartupTask.doStartupTask(mContext)
-        // TODO: 缓存任务执行的结果
         //启动任务执行完成后，通知子任务所依赖的本上游任务执行完成
         mTaskListener?.onTaskDone(mCurStartupTask,doResult)
     }
