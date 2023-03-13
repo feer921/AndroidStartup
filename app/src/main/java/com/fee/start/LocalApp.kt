@@ -3,6 +3,7 @@ package com.fee.start
 import android.app.Application
 import com.fee.start.tasks.*
 import com.github.androidstartup.StartupTasksManager
+import com.github.androidstartup.StartupTasksOrganizer
 import java.util.concurrent.Executor
 import java.util.concurrent.SynchronousQueue
 import java.util.concurrent.ThreadPoolExecutor
@@ -39,5 +40,22 @@ class LocalApp : Application() {
             .withTask(Task2())
             .withTask(BuglyInitTask())
             .startUp() //开始启动任务
+
+        //分组模式下的代码示例：
+        //第一组：
+        StartupTasksOrganizer.TasksBuilder()
+            .withTask(Task1())
+            .withTask(Task2())
+            .withTask(Task3())
+            .build(this)
+            .startUp()
+        //第二组：
+        StartupTasksOrganizer.TasksBuilder()
+            .withTask(Task4())
+            .withTask(Task5())
+            .withTask(BuglyInitTask())
+            .build(this)
+            .startUp()
+
     }
 }

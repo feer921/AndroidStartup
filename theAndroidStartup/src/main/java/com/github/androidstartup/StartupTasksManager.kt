@@ -26,7 +26,7 @@ class StartupTasksManager private constructor(): ITaskListener{
     private var mAppContext: Context? = null
 
     /**
-     * 启动任务的执行器
+     * 启动任务的执行器(在各启动任务未提供执行器时使用给本类设置的公用执行器，最好是全局共用的)
      */
     private var mTaskExecutor: Executor? = null
 
