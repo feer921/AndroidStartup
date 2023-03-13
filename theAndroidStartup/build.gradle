@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
+apply from:'maven_publish.gradle' //依赖 maven 发布脚本
 
 android {
     compileSdk 31
@@ -26,6 +27,11 @@ android {
     }
     kotlinOptions {
         jvmTarget = '11'
+    }
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
     }
 }
 
