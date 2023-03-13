@@ -34,6 +34,26 @@ class LocalApp : Application() {
 }
 ```
 
-# ToDo
+# 依赖
 
-发布至 **mavenCentral** 以供项目 gradle 依赖
+项目的根目录下的 **build.gradle** 中添加 maven仓库(由于Jcenter已废，基本都有maven的默认仓库)
+
+```groovy
+buildscript {
+    
+    repositories {
+        google()
+        mavenCentral() //增加 maven仓库
+    }
+}
+```
+
+再在 **app** 模块目录下的 **build.gradle** 文件中增加对本组件库的依赖
+
+```groovy
+dependencies {
+    implementation 'io.github.feer921:AndroidStartup:1.0'
+}
+```
+
+AS提示需要 同步工程，同步成功后，即依赖成功
